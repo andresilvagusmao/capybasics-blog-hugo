@@ -1,0 +1,22 @@
+{{/* Custom favicons handling - pulls from assets/img/favicon folder and static root */}}
+{{ $faviconDir := "img/favicon/" }}
+{{ $appleTouchIcon := resources.Get (printf "%sapple-touch-icon.png" $faviconDir) }}
+{{ $favicon32 := resources.Get (printf "%sfavicon-32x32.png" $faviconDir) }}
+{{ $favicon16 := resources.Get (printf "%sfavicon-16x16.png" $faviconDir) }}
+{{ $faviconIco := resources.Get (printf "%sfavicon.ico" $faviconDir) }}
+
+{{ if $appleTouchIcon }}
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ $appleTouchIcon.RelPermalink }}">
+{{ end }}
+{{ if $favicon32 }}
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ $favicon32.RelPermalink }}">
+{{ end }}
+{{ if $favicon16 }}
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ $favicon16.RelPermalink }}">
+{{ end }}
+<link rel="manifest" href="{{ "site.webmanifest" | relURL }}">
+{{ if $faviconIco }}
+  <link rel="shortcut icon" href="{{ $faviconIco.RelPermalink }}">
+{{ else }}
+  <link rel="shortcut icon" href="{{ "favicon.ico" | relURL }}">
+{{ end }}
