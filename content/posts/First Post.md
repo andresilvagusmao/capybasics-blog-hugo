@@ -8,10 +8,6 @@ authors: ["andre-silva-gusmao"]
 featureimage: "img/background/post-background.png"
 ---
 
-{{< icon "github" >}}
-{{< icon "twitter" >}}
-{{< icon "fire" >}}
-
 Tags: [Test](/tags/test/)
 
 ## Welcome This is my first post!
